@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="portal_record_sidebar_brand" inherit_id="portal.portal_record_sidebar">
+        <xpath expr="//div[hasclass('d-none') and hasclass('d-lg-block') and hasclass('mt-4')]" position="replace">
+            <div class="d-none d-lg-block mt-4 small text-center text-muted">
+                Powered by <a target="_blank" href="https://altiusol.com" title="Altius ERP">Altius ERP</a>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

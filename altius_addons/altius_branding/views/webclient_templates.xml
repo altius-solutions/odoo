@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="layout_brand" inherit_id="web.layout" name="Altius layout">
+        <xpath expr="//title" position="replace">
+            <title t-out="title or 'Altius ERP'"/>
+        </xpath>
+        <xpath expr="//link[@rel='shortcut icon']" position="replace">
+            <link rel="icon" type="image/svg+xml" href="/altius_branding/static/src/img/icon.svg"/>
+            <link rel="shortcut icon" type="image/x-icon" href="/altius_branding/static/src/img/favicon.ico"/>
+        </xpath>
+    </template>
+
+    <template id="login_layout_brand" inherit_id="web.login_layout" name="Altius login layout">
+        <xpath expr="//div[hasclass('text-center') and hasclass('pb-3')]" position="replace">
+            <div class="text-center pb-3 border-bottom mb-4">
+                <img t-if="res_company and not res_company.uses_default_logo"
+                     t-attf-src="/web/binary/company_logo{{ '?dbname='+db if db else '' }}"
+                     alt="Logo" class="o_altius_login_logo"/>
+                <img t-else="" src="/altius_branding/static/src/img/wordmark.svg" alt="Altius Solutions" class="o_altius_login_logo"/>
+            </div>
+        </xpath>
+        <xpath expr="//a[contains(@href, 'utm_medium=auth')]" position="replace">
+            <a href="https://altiusol.com" target="_blank">Powered by <span>Altius ERP</span></a>
+        </xpath>
+    </template>
+
+    <template id="login_brand" inherit_id="web.login" name="Altius login metadata">
+        <xpath expr="//meta[@property='og:site_name']" position="attributes">
+            <attribute name="content">Altius ERP</attribute>
+        </xpath>
+        <xpath expr="//meta[@name='twitter:site']" position="replace"/>
+        <xpath expr="//meta[@property='og:description']" position="attributes">
+            <attribute name="content">Altius ERP — CRM and business apps for small businesses.</attribute>
+        </xpath>
+        <xpath expr="//meta[@name='twitter:description']" position="attributes">
+            <attribute name="content">Altius ERP — CRM and business apps for small businesses.</attribute>
+        </xpath>
+    </template>
+
+    <template id="brand_promotion_message_brand" inherit_id="web.brand_promotion_message" name="Altius brand promotion">
+        <xpath expr="//t[@t-set='odoo_logo']" position="replace">
+            <t t-set="odoo_logo">
+                <strong>
+                    <a target="_blank" href="https://altiusol.com">Altius ERP</a>
+                </strong>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="webclient_bootstrap_brand" inherit_id="web.webclient_bootstrap" name="Altius web client">
+        <xpath expr="//meta[@name='theme-color']" position="attributes">
+            <attribute name="content">#1E1B4B</attribute>
+        </xpath>
+        <xpath expr="//link[@rel='apple-touch-icon']" position="attributes">
+            <attribute name="href">/altius_branding/static/src/img/icon-180.png</attribute>
+        </xpath>
+    </template>
+
+    <template id="report_layout_brand" inherit_id="web.report_layout" name="Altius report title">
+        <xpath expr="//title" position="replace">
+            <title><t t-out="title or 'Altius ERP'"/></title>
+        </xpath>
+    </template>
+
+    <template id="report_preview_layout_brand" inherit_id="web.report_preview_layout" name="Altius report preview title">
+        <xpath expr="//title" position="replace">
+            <title><t t-out="title or 'Altius ERP'"/></title>
+        </xpath>
+    </template>
+
+    <template id="webclient_offline_brand" inherit_id="web.webclient_offline" name="Altius offline page">
+        <xpath expr="//img" position="attributes">
+            <attribute name="alt">Altius ERP</attribute>
+        </xpath>
+        <xpath expr="//p" position="replace">
+            <p>Check your network connection and come back here. Altius ERP will load as soon as you're back online.</p>
+        </xpath>
+        <xpath expr="//style" position="after">
+            <style>
+                .card button { background-color: #4F46E5 !important; border-color: #4F46E5 !important; }
+            </style>
+        </xpath>
+    </template>
+
+</odoo>

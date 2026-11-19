@@ -1,0 +1,34 @@
+// Loaded last in web._assets_primary_variables so later modules
+// (portal resets $o-brand-* to the Enterprise purple) cannot win.
+
+$o-community-color: #4F46E5;
+$o-enterprise-color: #4F46E5;
+$o-brand-odoo: #1E1B4B;
+$o-brand-primary: #4F46E5;
+$o-action: #4F46E5;
+$o-main-link-color: #4338CA;
+$o-main-headings-color: #1E1B4B;
+$o-navbar-background: #1E1B4B;
+
+$altius-primary: #4F46E5;
+$altius-primary-hover: #4338CA;
+
+$o-btns-bs-override: map-merge($o-btns-bs-override, (
+    "primary": (
+        background: $altius-primary,
+        border: $altius-primary,
+        color: $o-white,
+
+        hover-background: $altius-primary-hover,
+        hover-border: $altius-primary-hover,
+        hover-color: $o-white,
+
+        active-background: $altius-primary-hover,
+        active-border: $altius-primary-hover,
+        active-color: $o-white,
+
+        disabled-background: $altius-primary,
+        disabled-border: $altius-primary,
+        disabled-color: $o-white,
+    ),
+));

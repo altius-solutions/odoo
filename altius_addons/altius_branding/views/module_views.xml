@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Hide Enterprise modules that only exist to advertise an upgrade. -->
+    <record id="base.open_module_tree" model="ir.actions.act_window">
+        <field name="domain">[('to_buy', '=', False)]</field>
+    </record>
+
+    <record id="module_form_hide_odoo_upgrade" model="ir.ui.view">
+        <field name="name">ir.module.module.form.altius</field>
+        <field name="model">ir.module.module</field>
+        <field name="inherit_id" ref="base.module_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//a[contains(@href, 'odoo.com/pricing')]" position="replace"/>
+        </field>
+    </record>
+
+    <record id="module_kanban_hide_odoo_upgrade" model="ir.ui.view">
+        <field name="name">ir.module.module.kanban.altius</field>
+        <field name="model">ir.module.module</field>
+        <field name="inherit_id" ref="base.module_view_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//a[contains(@href, 'odoo.com/pricing')]" position="replace"/>
+        </field>
+    </record>
+
+    <record id="base.menu_theme_store" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="base.theme_store" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="base.menu_third_party" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
+    <record id="ir_access_form_documentation" model="ir.ui.view">
+        <field name="name">ir.access.form.altius</field>
+        <field name="model">ir.access</field>
+        <field name="inherit_id" ref="base.ir_access_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//a[contains(@href, 'odoo.com/documentation')]" position="attributes">
+                <attribute name="href">https://altiusol.com</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

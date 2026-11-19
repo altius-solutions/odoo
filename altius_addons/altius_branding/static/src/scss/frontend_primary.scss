@@ -1,0 +1,5 @@
+// Frontend bundles set $primary back to Bootstrap blue. Put indigo
+// in place before Bootstrap's own variables (they use !default).
+$primary: #4F46E5;
+$link-color: #4338CA;
+$link-hover-color: #4338CA;

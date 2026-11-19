@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-inherit="website.website_loader" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_website_loader_odoo_logo')]" position="replace">
+            <img src="/altius_branding/static/src/img/wordmark.svg" alt="Altius Solutions" class="mb-5" style="height: 28px; width: auto;"/>
+        </xpath>
+    </t>
+
+</templates>

@@ -110,12 +110,24 @@ def _render_template(**d):
 
     templates = {}
 
-    with file_open("web/static/src/public/database_manager.qweb.html", "r") as fd:
-        templates['database_manager'] = fd.read()
-    with file_open("web/static/src/public/database_manager.master_input.qweb.html", "r") as fd:
-        templates['master_input'] = fd.read()
-    with file_open("web/static/src/public/database_manager.create_form.qweb.html", "r") as fd:
-        templates['create_form'] = fd.read()
+    def _read_db_manager_template(filename):
+        # The database manager is rendered with no database, so ir.ui.view
+        # inheritance cannot reach it. Prefer the Altius copy when that
+        # addon is on the addons path. See ALTIUS_BRANDING.md.
+        for candidate in (
+            f"altius_branding/static/src/public/{filename}",
+            f"web/static/src/public/{filename}",
+        ):
+            try:
+                with file_open(candidate, "r") as fd:
+                    return fd.read()
+            except FileNotFoundError:
+                continue
+        raise FileNotFoundError(filename)
+
+    templates['database_manager'] = _read_db_manager_template("database_manager.qweb.html")
+    templates['master_input'] = _read_db_manager_template("database_manager.master_input.qweb.html")
+    templates['create_form'] = _read_db_manager_template("database_manager.create_form.qweb.html")
 
     def load(template_name):
         fromstring = html.document_fromstring if template_name == 'database_manager' else html.fragment_fromstring

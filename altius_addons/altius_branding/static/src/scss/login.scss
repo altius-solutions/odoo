@@ -1,0 +1,35 @@
+body.bg-100 {
+    background-color: #EEF2FF !important;
+}
+
+.o_database_list.card {
+    background-color: #ffffff !important;
+    border-radius: 16px !important;
+    box-shadow: 0 16px 40px rgba(30, 27, 75, 0.08);
+}
+
+.o_altius_login_logo {
+    max-width: 240px;
+    width: 100%;
+    height: auto;
+}
+
+.btn-primary {
+    --bs-btn-bg: #4F46E5;
+    --bs-btn-border-color: #4F46E5;
+    --bs-btn-hover-bg: #4338CA;
+    --bs-btn-hover-border-color: #4338CA;
+    --bs-btn-active-bg: #4338CA;
+    --bs-btn-active-border-color: #4338CA;
+    --bs-btn-disabled-bg: #4F46E5;
+    --bs-btn-disabled-border-color: #4F46E5;
+    background-color: #4F46E5;
+    border-color: #4F46E5;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: #4338CA !important;
+    border-color: #4338CA !important;
+}

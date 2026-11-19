@@ -145,11 +145,16 @@ def initialize_sys_path() -> None:
     Setup the addons path ``odoo.addons.__path__`` with various defaults
     and explicit directories.
     """
+    # altius_addons sits next to the community addons directory so this
+    # fork picks up Altius branding without a custom --addons-path.
+    # See ALTIUS_BRANDING.md. Absent on a stock checkout, so this is a no-op.
+    branding_addons = os.path.join(os.path.dirname(tools.config.root_path), 'altius_addons')
     for path in (
         # tools.config.addons_base_dir,  # already present
         tools.config.addons_data_dir,
         *tools.config['addons_path'],
         tools.config.addons_community_dir,
+        branding_addons,
     ):
         if os.access(path, os.R_OK) and path not in odoo.addons.__path__:
             odoo.addons.__path__.append(path)
