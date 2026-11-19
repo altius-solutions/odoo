@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-inherit="web.NavBar" t-inherit-mode="extension">
+        <xpath expr="//t[@t-call='web.NavBar.AppsMenu']" position="after">
+            <a href="/odoo" class="o_altius_brand d-none d-md-flex align-items-center px-2 text-decoration-none" title="Altius ERP">
+                <img src="/altius_branding/static/src/img/icon.svg" alt="" width="22" height="22" class="me-2"/>
+                <img src="/altius_branding/static/src/img/wordmark-on-navy.svg" alt="Altius Solutions" style="height: 14px; width: auto;"/>
+            </a>
+        </xpath>
+    </t>
+
+    <t t-inherit="web.NavBar.AppsMenu.Sidebar" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_sidebar_topbar')]" position="after">
+            <a href="/odoo" class="o_altius_brand d-flex align-items-center px-3 py-3 text-decoration-none bg-white" title="Altius ERP">
+                <img src="/altius_branding/static/src/img/icon.svg" alt="" width="28" height="28" class="me-2"/>
+                <img src="/altius_branding/static/src/img/wordmark.svg" alt="Altius Solutions" style="height: 16px; width: auto;"/>
+            </a>
+        </xpath>
+    </t>
+
+    <t t-inherit="res_config_edition" t-inherit-mode="extension">
+        <xpath expr="//h3" position="replace">
+            <h3 class="px-0">
+                Altius ERP <t t-out="this.serverVersion"/>
+            </h3>
+        </xpath>
+        <xpath expr="//small" position="replace">
+            <small>
+                Altius ERP, distributed by
+                <a target="_blank" href="https://altiusol.com" style="text-decoration: underline;">Altius Solutions</a>.
+                Built on Odoo Community Edition.
+                Copyright © 2004
+                <a target="_blank" href="https://www.odoo.com" style="text-decoration: underline;">Odoo S.A.</a>
+                <a target="_blank" href="https://www.gnu.org/licenses/lgpl.html" style="text-decoration: underline;">GNU LGPL Licensed</a>.
+            </small>
+        </xpath>
+    </t>
+
+    <t t-inherit="web.UpgradeDialog" t-inherit-mode="extension">
+        <xpath expr="//Dialog" position="attributes">
+            <attribute name="title.translate">Altius ERP</attribute>
+        </xpath>
+        <xpath expr="//div[@role='status']" position="replace">
+            <div role="status">
+                This feature is not included in Altius ERP.
+                <a href="https://altiusol.com" target="_blank">Contact Altius Solutions</a>
+                if you need it for your business.
+            </div>
+        </xpath>
+        <xpath expr="//button[hasclass('btn-primary')]" position="replace">
+            <button class="btn btn-primary" t-on-click="this._confirmUpgrade">Contact Altius</button>
+        </xpath>
+    </t>
+
+</templates>

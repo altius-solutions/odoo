@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form_altius" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.altius</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='pwa_settings']//field[@name='web_app_name']" position="attributes">
+                <attribute name="placeholder">Altius ERP</attribute>
+            </xpath>
+            <xpath expr="//block[@id='pwa_settings']//setting" position="attributes">
+                <attribute name="help">This name will be used for the application when Altius ERP is installed through the browser.</attribute>
+            </xpath>
+            <xpath expr="//setting[@id='partner_autocomplete']" position="attributes">
+                <attribute name="title">When populating your address book, a list of matching companies can be suggested. When selecting one item, the company data and logo are auto-filled.</attribute>
+            </xpath>
+            <xpath expr="//button[@name='%(base.action_apikeys_admin)d']/parent::setting" position="attributes">
+                <attribute name="help">API Keys allow your users to access Altius ERP with external tools when multi-factor authentication is enabled.</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

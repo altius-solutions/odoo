@@ -1,0 +1,23 @@
+// Altius palette, applied before Odoo's !default assignments.
+// Buttons, links, and active states use indigo. The navbar uses navy
+// via $o-brand-odoo, which navbar.variables.scss reads.
+
+$o-community-color: #4F46E5;
+// The editor palette uses this as its first brand swatch (o-color-1),
+// which the frontend then promotes to $primary. Keep it indigo.
+$o-enterprise-color: #4F46E5;
+$o-enterprise-action-color: #4338CA;
+$o-brand-odoo: #1E1B4B;
+$o-brand-primary: #4F46E5;
+$o-action: #4F46E5;
+
+$o-gray-100: #F8FAFC;
+$o-gray-200: #F1F5F9;
+$o-gray-600: #64748B;
+$o-gray-700: #475569;
+$o-gray-800: #1E293B;
+$o-gray-900: #0F172A;
+
+$o-main-text-color: #0F172A;
+$o-main-headings-color: #1E1B4B;
+$o-main-link-color: #4338CA;

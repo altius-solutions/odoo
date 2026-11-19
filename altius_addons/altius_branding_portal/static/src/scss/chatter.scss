@@ -1,0 +1,20 @@
+$o-brand-odoo: #1E1B4B;
+$o-brand-primary: #4F46E5;
+$o-action: #4F46E5;
+
+$o-btns-bs-override: map-merge($o-btns-bs-override, (
+    "primary": (
+        background: #4F46E5,
+        border: #4F46E5,
+        color: $o-white,
+        hover-background: #4338CA,
+        hover-border: #4338CA,
+        hover-color: $o-white,
+        active-background: #4338CA,
+        active-border: #4338CA,
+        active-color: $o-white,
+        disabled-background: #4F46E5,
+        disabled-border: #4F46E5,
+        disabled-color: $o-white,
+    ),
+));
